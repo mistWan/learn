@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>layout 后台大布局 - Layui</title>
+  <link rel="stylesheet" href="../layui/css/layui.css">
+  <link rel="stylesheet" href="css/v1.css">
+  <style>
+    @media screen and (max-width: 900px) {
+      .layui-body .left {
+        float: none;
+        width: 100%;
+        margin-right: 0;
+      }
+
+      .layui-body .right {
+        margin-top: 20px;
+        float: none;
+        height: 500px;
+        width: 100%;
+      }
+      .layui-body .left .card .card1, .layui-body .left .card .card3 {
+        display: block;
+        width: 100%;
+        margin-right: 0;
+      }
+      .layui-body .left .card .card2 {
+        float: none;
+        width: 100%;
+      }
+      .layui-card-body:after {
+        clear: both;
+        display: block;
+        content: '';
+      }
+    }
+    @media screen and (max-width: 470px) {
+      .chart .button {
+        text-align: center;
+      }
+      .chart .button button {
+        margin: 10px 5%;
+      }
+    }
+  </style>
+</head>
+<!--<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">-->
+<!--  <div class="layui-header">
+    <div class="layui-logo">layui 后台布局</div>
+    &lt;!&ndash; 头部区域（可配合layui已有的水平导航） &ndash;&gt;
+    <ul class="layui-nav layui-layout-left">
+      <li class="layui-nav-item"><a href="">控制台</a></li>
+      <li class="layui-nav-item"><a href="">商品管理</a></li>
+      <li class="layui-nav-item"><a href="">用户</a></li>
+      <li class="layui-nav-item">
+        <a href="javascript:;">其它系统</a>
+        <dl class="layui-nav-child">
+          <dd><a href="">邮件管理</a></dd>
+          <dd><a href="">消息管理</a></dd>
+          <dd><a href="">授权管理</a></dd>
+        </dl>
+      </li>
+    </ul>
+    <ul class="layui-nav layui-layout-right">
+      <li class="layui-nav-item">
+        <a href="javascript:;">
+          <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+          贤心
+        </a>
+        <dl class="layui-nav-child">
+          <dd><a href="">基本资料</a></dd>
+          <dd><a href="">安全设置</a></dd>
+        </dl>
+      </li>
+      <li class="layui-nav-item"><a href="">退了</a></li>
+    </ul>
+  </div>
+
+  <div class="layui-side layui-bg-black">
+    <div class="layui-side-scroll">
+      &lt;!&ndash; 左侧导航区域（可配合layui已有的垂直导航） &ndash;&gt;
+      <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+        <li class="layui-nav-item layui-nav-itemed">
+          <a class="" href="javascript:;">所有商品</a>
+          <dl class="layui-nav-child">
+            <dd><a href="javascript:;">列表一</a></dd>
+            <dd><a href="javascript:;">列表二</a></dd>
+            <dd><a href="javascript:;">列表三</a></dd>
+            <dd><a href="">超链接</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <a href="javascript:;">解决方案</a>
+          <dl class="layui-nav-child">
+            <dd><a href="javascript:;">列表一</a></dd>
+            <dd><a href="javascript:;">列表二</a></dd>
+            <dd><a href="">超链接</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item"><a href="">云市场</a></li>
+        <li class="layui-nav-item"><a href="">发布商品</a></li>
+      </ul>
+    </div>
+  </div>-->
+ <!--业务HTML-->
+  <div class="layui-body">
+    <div class="left">
+      <div class="card">
+        <div class="layui-card card1">
+          <div class="layui-card-header">今日会员人数</div>
+          <div class="layui-card-body">
+            <div class="data">
+              <h2 class="member">0</h2>
+              <span>会员人数</span>
+            </div>
+            <div class="data">
+              <h2 class="increment">0</h2>
+              <span>今日新增</span>
+            </div>
+          </div>
+        </div>
+        <div class="layui-card card2">
+          <div class="layui-card-header">今日账户余额</div>
+          <div class="layui-card-body">
+              <h2 class="balance">0</h2>
+          </div>
+        </div>
+        <div class="layui-card card3">
+          <div class="layui-card-header">今日业务概况</div>
+          <div class="layui-card-body">
+            <div class="data">
+              <h2 class="transaction">0</h2>
+              <span>交易额</span>
+            </div>
+            <div class="data">
+              <h2 class="order">0</h2>
+              <span>订单数</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="layui-card chart">
+        <div class="layui-card-header">业绩折线图</div>
+        <div class="layui-card-body">
+          <div class="button">
+            <button type="button" class="layui-btn layui-btn-radius">近7天</button>
+            <button type="button" class="layui-btn layui-btn-radius layui-btn-primary">近30天</button>
+            <button type="button" class="layui-btn layui-btn-radius layui-btn-primary layui-btn-radius">近3月</button>
+            <button type="button" class="layui-btn layui-btn-radius layui-btn-primary layui-btn-radius">近1年</button>
+          </div>
+          <div class="graph">
+            <div id="container1"></div>
+            <div id="container2"></div>
+            <div id="container3"></div>
+            <div id="container4"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="right layui-card"></div>
+  </div>
+
+  <!--<div class="layui-footer">-->
+    <!--&lt;!&ndash; 底部固定区域 &ndash;&gt;-->
+    <!--© layui.com - 底部固定区域-->
+  <!--</div>-->
+<!--</div>-->
+<script src="../layui/layui.js"></script>
+<script src="https://cdn.bootcss.com/echarts/4.2.1/echarts.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="js/v1.js"></script>
+</body>
+</html>
